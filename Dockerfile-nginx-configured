@@ -1,0 +1,8 @@
+# using the nginx image as the starting point
+FROM nginx:latest
+
+# copy the file nginx.conf from host to the container
+COPY ./nginx.conf /etc/nginx/conf.d/default.conf 
+
+# start nginx when the container starts
+CMD ["nginx", "-g", "daemon off;"]

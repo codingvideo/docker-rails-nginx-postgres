@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+
+  http-service:
+    image: nginx-configured
+    volumes:
+      - ./rails-app:/rails-app
+    ports:
+      - "81:80"
+    tty: true
+    depends_on:
+      - app-service
+
+  app-service:
+    image: rails-postgres
+    volumes:
+      - ./rails-app:/rails-app
+    ports:
+      - "3001:3000"
+    tty: true

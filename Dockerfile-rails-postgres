@@ -1,0 +1,15 @@
+# using the nginx image as the starting point
+FROM ruby:2.6
+
+# install postgresql
+RUN apt-get update -qq && apt-get install -y postgresql-client
+
+# install rails
+RUN gem install rails -v 6.0.0
+
+# create a folder in the container
+RUN mkdir /rails-app
+
+# make it the default location when we run a command
+WORKDIR /rails-app
+

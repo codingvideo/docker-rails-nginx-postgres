@@ -1,0 +1,27 @@
+# create an image with the Dockerfile
+docker build -t YOUR_IMAGE_NAME . 
+
+# create an image with a Dockerfile that isn't named Dockerfile
+docker build -f DOCKERFILE_NAME -t YOUR_IMAGE_NAME . 
+
+# start a container without a default command
+docker run -dt -p 3001:3000 -v $(pwd)/rails-app:/rails-app YOUR_IMAGE_NAME
+
+# see all running containers and their IDs
+docker ps
+
+# stop a running container
+docker kill CONTAINER_ID
+
+# start all containers in the docker-compose.yml file
+docker-compose up -d SERVICE_NAME
+
+# run a command in the container
+docker exec CONTAINER_ID COMMAND 
+
+# get inside the container in interactive mode
+docker exec -it CONTAINER_ID bash
+
+# stop all containers in the docker-compose.yml file 
+docker-compose down
+
