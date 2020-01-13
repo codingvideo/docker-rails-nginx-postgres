@@ -19,3 +19,9 @@ services:
     ports:
       - "3001:3000"
     tty: true
+
+  db-service:
+    image: postgres:12
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    tty: true
